@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from './CartSlice';
 import { Link } from 'react-router-dom';
 
+// تعريف المنتجات بالفئات
 const products = [
   // Indoor Plants
   { id: 1, name: 'Fiddle Leaf Fig', price: 25, category: 'Indoor', image: '/images/fig.jpg' },
@@ -40,7 +41,7 @@ const ProductList = () => {
   const isInCart = (id) => cartItems.some(item => item.id === id);
 
   return (
-    <div>
+    <div className="product-list-page">
       {/* Navbar */}
       <nav>
         <Link to="/">Home</Link> |{' '}
@@ -48,7 +49,7 @@ const ProductList = () => {
         <Link to="/cart">Cart ({cartItems.length})</Link>
       </nav>
 
-      {/* Products by Category */}
+      {/* عرض المنتجات حسب الفئات */}
       {['Indoor', 'Outdoor', 'Succulent'].map(category => (
         <div key={category}>
           <h2>{category} Plants</h2>
